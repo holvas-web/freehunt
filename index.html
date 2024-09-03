@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open TXT File</title>
+    <title>Display TXT File</title>
 </head>
 <body>
-    <h1>Open .txt file</h1>
-    <a href="https://github.com/holvas-web/freehunt/blob/main/freelancehunt-ecbf0a3b64a7e5c.txt" target="_blank">Open text file</a>
+    <h1>Content of TXT File</h1>
+    <pre id="fileContent"></pre>
+
+    <script>
+        fetch('https://github.com/holvas-web/freehunt/blob/main/freelancehunt-ecbf0a3b64a7e5c.txt')
+            .then(response => response.text())
+            .then(text => document.getElementById('fileContent').textContent = text)
+            .catch(error => console.error('Error fetching the text file:', error));
+    </script>
 </body>
 </html>
